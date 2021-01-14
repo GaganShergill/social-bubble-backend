@@ -11,7 +11,6 @@ mkl-fft==1.1.0
 mkl-random==1.1.1
 mkl-service==2.3.0
 numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1596233721170/work
-pandas @ file:///tmp/build/80754af9/pandas_1596825826607/work
 Pillow==8.1.0
 PyJWT==2.0.0
 python-dateutil==2.8.1
