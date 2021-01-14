@@ -27,7 +27,7 @@ SECRET_KEY = '1(bp)+(uki_(_yr!1%+1*9rkqb6h7tvonxufdm87a+$!hu-&a1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', 'social-bubble.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny',],
 }
