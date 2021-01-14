@@ -138,8 +138,8 @@ class RegisterView(APIView):
         try:
             registerSerializer.is_valid(raise_exception=True)
         except serializers.ValidationError as err:
-            # errors= ''.join([str(v[0]) for k,v in err.args[0].items()])
-            return http.HttpResponseBadRequest(err)
+            errors= ''.join([str(v[0]) for k,v in err.args[0].items()])
+            return http.HttpResponseBadRequest(errors)
         else:
             registerSerializer.validated_data['password'] = make_password(registerSerializer.validated_data['password'])
             user = registerSerializer.save()
