@@ -29,7 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1', 'social-bubble.herokuapp.com']
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny',],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated',],
 }
 # Application definition
 
