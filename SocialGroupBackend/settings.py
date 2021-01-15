@@ -25,7 +25,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'myApp/media')
 SECRET_KEY = '1(bp)+(uki_(_yr!1%+1*9rkqb6h7tvonxufdm87a+$!hu-&a1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1', 'social-bubble.herokuapp.com']
 REST_FRAMEWORK = {
@@ -145,6 +145,8 @@ SIMPLE_JWT = {
     # it can be refreshed.  exprired tokens can't be refreshed.
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
 }
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
