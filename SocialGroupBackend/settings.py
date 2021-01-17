@@ -31,10 +31,29 @@ ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1',]
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated',],
 }
-
-CORS_ORIGIN_WHITELIST = (
+CORS_ORIGIN_WHITELIST = [
     'https://social-bubble.herokuapp.com',
-)
+]
+AUTH_USER_MODEL = 'myApp.User'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+SIMPLE_JWT = {
+    # how long the original token is valid for
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=2),
+
+    # allow refreshing of tokens
+    'ROTATE_REFRESH_TOKENS': True,
+
+    # this is the maximum time AFTER the token was issued that
+    # it can be refreshed.  exprired tokens can't be refreshed.
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
+}
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -128,27 +147,6 @@ USE_L10N = True
 
 USE_TZ = False
 
-AUTH_USER_MODEL = 'myApp.User'
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-}
-
-SIMPLE_JWT = {
-    # how long the original token is valid for
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=2),
-
-    # allow refreshing of tokens
-    'ROTATE_REFRESH_TOKENS': True,
-
-    # this is the maximum time AFTER the token was issued that
-    # it can be refreshed.  exprired tokens can't be refreshed.
-    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
-}
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
