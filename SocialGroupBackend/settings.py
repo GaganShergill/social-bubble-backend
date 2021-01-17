@@ -33,7 +33,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'social-bubble.herokuapp.com',
+    'https://social-bubble.herokuapp.com',
 )
 # Application definition
 
