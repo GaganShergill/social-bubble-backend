@@ -27,10 +27,14 @@ SECRET_KEY = '1(bp)+(uki_(_yr!1%+1*9rkqb6h7tvonxufdm87a+$!hu-&a1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1', 'social-bubble.herokuapp.com']
+ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1',]
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated',],
 }
+
+CORS_ORIGIN_WHITELIST = (
+    'social-bubble.herokuapp.com',
+)
 # Application definition
 
 INSTALLED_APPS = [
@@ -123,8 +127,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 AUTH_USER_MODEL = 'myApp.User'
 
