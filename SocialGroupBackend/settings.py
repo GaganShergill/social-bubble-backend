@@ -25,7 +25,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'myApp/media')
 SECRET_KEY = '1(bp)+(uki_(_yr!1%+1*9rkqb6h7tvonxufdm87a+$!hu-&a1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1', ]
 REST_FRAMEWORK = {
