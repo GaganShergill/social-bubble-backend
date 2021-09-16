@@ -9,13 +9,14 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from django import http
 # Create your views here.
 
+
 class EventView(APIView):
     permission_classes = (IsAuthenticated,)
-
 
     def get(self, request):
         duration = request.GET.get('q', '')
@@ -25,15 +26,15 @@ class EventView(APIView):
             fetchedData = models.Event.objects.filter(date__gte = today_min)
         elif duration == 'today':
             today_max = datetime.combine(date.today(), time.max)
-            fetchedData = models.Event.objects.filter(date__range=(today_min, today_max))
+            fetchedData = models.Event.objects.filter(date__range = (today_min, today_max))
         elif duration == 'tommorrow':
             tommorrow_min = datetime.combine(date.today() + timedelta(1), time.min)
             tommorrow_max = datetime.combine(date.today() + timedelta(1), time.max)
-            fetchedData = models.Event.objects.filter(date__range=(tommorrow_min, tommorrow_max))
+            fetchedData = models.Event.objects.filter(date__range = (tommorrow_min, tommorrow_max))
         elif duration == 'week':
             days_left = 6 - date.today().weekday()
             week_max = datetime.combine(date.today() + timedelta(days_left), time.max)
-            fetchedData = models.Event.objects.filter(date__range=(today_min, week_max))
+            fetchedData = models.Event.objects.filter(date__range = (today_min, week_max))
         else:
             days_left = calendar.monthrange(datetime.now().year, datetime.now().month)[1] - datetime.now().day
             month_max = datetime.combine(date.today() + timedelta(days_left), time.max)
@@ -132,6 +133,7 @@ class TripView(APIView):
 
 
 class RegisterView(APIView):
+    permission_classes = (AllowAny,)
     def post(self, request):
         registerSerializer = UserSerializer(data=request.data)
 
@@ -139,7 +141,7 @@ class RegisterView(APIView):
             registerSerializer.is_valid(raise_exception=True)
         except serializers.ValidationError as err:
             errors= ''.join([str(v[0]) for k,v in err.args[0].items()])
-            return http.HttpResponseBadRequest(errors)
+            return http.HttpResponseBadRequest(err)
         else:
             registerSerializer.validated_data['password'] = make_password(registerSerializer.validated_data['password'])
             user = registerSerializer.save()
