@@ -25,21 +25,20 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'myApp/media')
 SECRET_KEY = '1(bp)+(uki_(_yr!1%+1*9rkqb6h7tvonxufdm87a+$!hu-&a1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1',]
+ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1', ]
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated',],
-}
-CORS_ORIGIN_WHITELIST = [
-    'https://social-bubble.herokuapp.com',
-]
-AUTH_USER_MODEL = 'myApp.User'
-REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated', ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+CORS_ORIGIN_WHITELIST = [
+    'https://social-bubble.herokuapp.com',
+    'http://localhost:3000',
+]
+AUTH_USER_MODEL = 'myApp.User'
 SIMPLE_JWT = {
     # how long the original token is valid for
     'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=2),
@@ -139,7 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Kolkata'
+TIME_ZONE = 'Canada/Central'
 
 USE_I18N = True
 
