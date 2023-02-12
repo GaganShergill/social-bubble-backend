@@ -27,7 +27,7 @@ SECRET_KEY = '1(bp)+(uki_(_yr!1%+1*9rkqb6h7tvonxufdm87a+$!hu-&a1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['social-bubble-backend.herokuapp.com', '127.0.0.1', ]
+ALLOWED_HOSTS = ['social-bubble-backend.onrender.com', '127.0.0.1', ]
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated', ],
@@ -37,7 +37,7 @@ REST_FRAMEWORK = {
     ],
 }
 CORS_ORIGIN_WHITELIST = [
-    'https://social-bubble.herokuapp.com',
+    'https://social-bubble-backend.onrender.com',
     'http://localhost:3000',
 ]
 AUTH_USER_MODEL = 'myApp.User'
