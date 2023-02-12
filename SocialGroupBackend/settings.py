@@ -109,10 +109,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'db.sqlite3'
-        'HOST': 'ec2-54-157-12-250.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'vvtwcbubcbzksh',
-        'PASSWORD': 'b5e9d79eae0160ab51119f3bc2588494da781e94ff6426172ead8d4f782bba96',
+        # 'HOST': 'ec2-54-157-12-250.compute-1.amazonaws.com',
+        # 'PORT': 5432,
+        # 'USER': 'vvtwcbubcbzksh',
+        # 'PASSWORD': 'b5e9d79eae0160ab51119f3bc2588494da781e94ff6426172ead8d4f782bba96',
     }
 }
 
