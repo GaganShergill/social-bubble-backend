@@ -49,7 +49,7 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,
 
     # this is the maximum time AFTER the token was issued that
-    # it can be refreshed.  exprired tokens can't be refreshed.
+    # it can be refreshed.  expired tokens can't be refreshed.
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
 }
 SESSION_COOKIE_SECURE = True
@@ -107,8 +107,8 @@ WSGI_APPLICATION = 'SocialGroupBackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'daougt4hjf7giu',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3'
         'HOST': 'ec2-54-157-12-250.compute-1.amazonaws.com',
         'PORT': 5432,
         'USER': 'vvtwcbubcbzksh',

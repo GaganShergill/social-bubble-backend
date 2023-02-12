@@ -16,13 +16,14 @@ import os
 
 # Create your models here.
 class Event(models.Model):
+    id = models.AutoField(primary_key=True)
     eventName = models.CharField(max_length=50)
     eventType = models.CharField(max_length=30)
     venue = models.CharField(max_length=100)
     price = models.IntegerField()
     detail = models.CharField(max_length=500)
     date = models.DateTimeField(default=datetime.now)
-
+    objects = models.Manager()
     def __str__(self):
         return self.eventName
 
@@ -30,23 +31,25 @@ class Activity(models.Model):
     class Meta:
         verbose_name_plural = "Activities"
 
+    id = models.AutoField(primary_key=True)
     activityName = models.CharField(max_length=50)
     activityType = models.CharField(max_length=30)
     venue = models.CharField(max_length=100)
     price = models.IntegerField()
     detail = models.CharField(max_length=500)
     date = models.DateTimeField(default=datetime.now)
-
+    objects = models.Manager()
     def __str__(self):
         return self.activityName
 
 class Trip(models.Model):
+    id = models.AutoField(primary_key=True)
     destination = models.CharField(max_length=50)
     nights = models.IntegerField()
     price = models.IntegerField()
     detail = models.TextField()
     date = models.DateTimeField(default=datetime.now)
-
+    objects = models.Manager()
     def __str__(self):
         return self.destination
 
@@ -58,6 +61,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         file_ext = os.path.splitext(filename)[1]
         return f'avatars/{name}{file_ext}'
 
+    id = models.AutoField(primary_key=True)
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)

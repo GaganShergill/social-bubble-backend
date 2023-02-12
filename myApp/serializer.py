@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from . import models
-from django.contrib.auth.models import User
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
@@ -53,7 +52,7 @@ class UserSerializer(serializers.ModelSerializer):
         if not data['first_name'].isalpha():
             raise serializers.ValidationError({'first_name': "name must contain only alphabets"})
         if len(data['password']) < 8:
-            raise serializers.ValidationError({'password': "password must be atleast 8 characters long"})
+            raise serializers.ValidationError({'password': "password must be at least 8 characters long"})
         return data
 
     def get_avatar(self, user):
