@@ -37,7 +37,7 @@ REST_FRAMEWORK = {
     ],
 }
 CORS_ORIGIN_WHITELIST = [
-    'https://social-bubble-backend.onrender.com',
+    'https://social-bubble-frontend.onrender.com',
     'http://localhost:3000',
 ]
 AUTH_USER_MODEL = 'myApp.User'
