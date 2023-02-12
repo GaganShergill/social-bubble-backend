@@ -109,7 +109,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'socialbubble_db',
-        'HOST': 'dpg-cfk75q1a6gductlnq51g-a',
+        'HOST': 'dpg-cfk75q1a6gductlnq51g-a.oregon-postgres.render.com',
         'PORT': 5432,
         'USER': 'admin',
         'PASSWORD': 'avUYVevg5YLFK5488dfBFPjIEcjhJ9K0',
