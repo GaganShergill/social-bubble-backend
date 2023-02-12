@@ -107,12 +107,12 @@ WSGI_APPLICATION = 'SocialGroupBackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3'
-        # 'HOST': 'ec2-54-157-12-250.compute-1.amazonaws.com',
-        # 'PORT': 5432,
-        # 'USER': 'vvtwcbubcbzksh',
-        # 'PASSWORD': 'b5e9d79eae0160ab51119f3bc2588494da781e94ff6426172ead8d4f782bba96',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'socialbubble_db',
+        'HOST': 'dpg-cfk75q1a6gductlnq51g-a',
+        'PORT': 5432,
+        'USER': 'admin',
+        'PASSWORD': 'avUYVevg5YLFK5488dfBFPjIEcjhJ9K0',
     }
 }
 
